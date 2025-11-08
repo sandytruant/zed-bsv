@@ -6,4 +6,4 @@ This extension provides syntax highlighting support for Bluespec SystemVerilog (
 
 ## Example
 
-[](assets/example.png)
+![](assets/example.png)
