@@ -1,0 +1,5 @@
+name = "Bluespec SystemVerilog"
+grammar = "bsv"
+path_suffixes = ["bsv"]
+line_comments = ["// "]
+block_comment = ["/*", "*/"]
