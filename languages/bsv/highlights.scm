@@ -11,9 +11,6 @@
   "typedef"
   "struct"
   "enum"
-  "union"
-  "tagged"
-  "deriving"
 ] @keyword
 
 [
@@ -31,45 +28,22 @@
   "case"
   "endcase"
   "default"
-  "matches"
 ] @keyword.control.conditional
 
-[
-  "for"
-  "while"
-] @keyword.control.repeat
+"for" @keyword.control.repeat
 
 [
-  "return"
-  "action"
-  "endaction"
-  "actionvalue"
-  "endactionvalue"
-] @keyword.control.return
+  "begin"
+  "end"
+] @keyword.control
 
-[
-  "let"
-  "var"
-] @keyword.storage
+"return" @keyword.control.return
 
 ; Built-in types
-[
-  "Bit"
-  "Int"
-  "UInt"
-  "Bool"
-  "Integer"
-  "String"
-  "Reg"
-  "Wire"
-  "FIFO"
-  "Vector"
-  "Action"
-  "ActionValue"
-  "Rules"
-  "Module"
-  "void"
-] @type.builtin
+(primitive_type) @type.builtin
+
+; Type nodes (for debugging - highlight entire type expression)
+(type) @type
 
 ; Boolean literals
 [
@@ -119,6 +93,8 @@
   "."
 ] @punctuation.delimiter
 
+"::" @punctuation.delimiter
+
 ; Comments
 (comment) @comment
 
@@ -128,18 +104,18 @@
 ; Strings
 (string) @string
 
-; Identifiers
-(identifier) @variable
+; Boolean
+(boolean) @constant.builtin.boolean
 
-; Function/Method names
+; Function/Method/Rule names
 (function_declaration
   name: (identifier) @function)
 
 (method_declaration
   name: (identifier) @function.method)
 
-(function_call
-  function: (identifier) @function)
+(rule_declaration
+  name: (identifier) @function)
 
 ; Module/Interface names
 (module_declaration
@@ -148,24 +124,9 @@
 (interface_declaration
   name: (identifier) @type)
 
-; Type names
-(type_identifier) @type
-
 ; Package name
 (package_declaration
   name: (identifier) @namespace)
 
-(import_declaration
-  package: (identifier) @namespace)
-
-; Parameters
-(parameter
-  name: (identifier) @variable.parameter)
-
-; Field access
-(member_expression
-  field: (identifier) @property)
-
-; Rule names
-(rule_declaration
-  name: (identifier) @function)
+; Identifiers (general - keep this at the end)
+(identifier) @variable

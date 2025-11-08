@@ -6,10 +6,6 @@ schema_version = 1
 authors = ["sandytruant etonsun2212@icloud.com"]
 repository = "https://github.com/sandytruant/zed-bsv"
 
-[language_servers.bsv-language-server]
-name = "BSV Language Server"
-language = "bsv"
-
 [grammars.bsv]
 repository = "https://github.com/sandytruant/tree-sitter-bsv"
 rev = "main"
